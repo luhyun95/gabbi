@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+    <title>Your Storybook Website</title>
+
+  <style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tangerine', cursive;
+    cursor: url('storybook-cursor.png'), auto;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+header {
+    max-width: 1200px; /* Maximum width for the header */
+    margin: 0 auto; /* Center the header horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background:     url('https://i.ibb.co/grNCQMx/IMG-0737-removebg-preview.png') no-repeat; /* Updated header background image */
+    background-size: calc(100% - 40px) auto; /* Contain the image within the header */
+    padding: 0 10px;
+    height: 60px; /* Reduced height */
+    color: white;
+    font-family: 'Tangerine', cursive;
+    position: relative; /* Make the header float on top of the hero section */
+    width: calc(100% - 80px); /* Full width minus padding */
+    z-index: 1000; /* Place header above other content */
+    top: 20px; /* Space from the top */
+    left: 50%; /* Center the header horizontally */
+    transform: translateX(-50%); /* Offset by half of the header's width */
+
+}
+
+  /* Container for header elements */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Maximum width for the header container */
+    width: 100%; /* Take up all available space */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+
+.logo {
+    height: auto; /* Maintain aspect ratio */
+    max-height: 25px; /* Maximum height */
+    width: auto; /* Maintain aspect ratio */
+    flex-grow: 0; /* Prevent growing */
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    align-items: center;
+    color: black; /* Updated text color to black */
+    font-size: calc(1.3rem + 0.5vw); /* Responsive font size */
+    flex-grow: 0; /* Prevent growing */
+}
+
+.cta-button {
+    background: url('https://i.ibb.co/fdP26pV/IMG-0739-removebg-preview.png') no-repeat center center; /* Background image */
+    background-size: contain; /* Contain the image within the button */
+    height: 40px; /* Reverted height */
+    border: none;
+    color: black;
+    padding: 0; /* Padding */
+    cursor: pointer;
+    font-family: 'Tangerine', cursive;
+    font-size: 1.5rem; /* Font size */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    width: 120px; /* Reverted width */
+    margin-right: 20px; /* Margin to keep the button within the header */
+}
+
+.main-section {
+    background: url('https://i.ibb.co/hcBr9qq/IMG-0726.jpg') no-repeat center top;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px;
+    padding-top: 80px; /* Add space from the header */
+
+}
+
+/* Increase the size of the <h1> in the main section */
+.main-section h1 {
+    font-size: 50px; /* Adjust to your preferred size */
+    /* Other styles as needed */
+}
+
+/* Increase the size of the paragraph in the main section */
+.main-section p {
+    font-size: 20px; /* Adjust to your preferred size */
+    margin: 5px;
+    width: 180px; /* Increased width */
+    text-align: center;
+    /* Other styles as needed */
+}
+
+/* Increase the size of the button in the main section */
+
+
+/* Footer styles */
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    font-family: 'Tangerine', cursive;
+    font-size: 1.2rem; /* Matched font size with menu */
+    height: 60px; /* Set a minimum height for the footer */
+    text-align: center;
+}
+
+.footer-content p {
+    text-align: center; /* Center the text */
+}
+
+.social-media {
+    display: flex; /* Align icons horizontally */
+    justify-content: center; /* Center icons horizontally */
+}
+
+.social-media img {
+    height: 30px;
+    margin: 10px;
+}
+
+
+
+.social-media img {
+    height: 30px;
+    margin: 10px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 5px;
+}
+
+.button-icon {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Set position to relative to contain absolute-positioned text */
+    width: 120px; /* Set the same width as the image */
+    height: 70px; /* Set the same height as the image */
+}
+
+.button-text {
+    font-size: 1.3rem;
+    color: white;
+    position: absolute; /* Set position to absolute to overlay text on the image */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Align the exact center */
+    font-family: 'Tangerine', cursive;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.character-image {
+    width: 100px;
+    height: 100px;
+    margin: 20px 5px;
+}
+
+.scroll-section {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.scroll-section img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+</style>
+</head>
+<body>
+      <header>
+        <div class="header-container">
+        <img src="https://i.ibb.co/B3YW3mw/gabbi-ver6-2-red-eyes.png" alt="Gabbi Logo" class="logo">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#gabbi">Gabbi</a>
+            <a href="#retreat">Retreat</a>
+        </nav>
+        <button class="cta-button">Join</button>
+        </div>
+    </header>
+    <div class="main-section">
+        <h1>Hello, Gabbi</h1> <!-- h1 text -->
+        <p>Do you feel lost?
+           Maybe you never truly looked into your soul.
+           Are you ready to begin your spiritual journey?</p>
+        <button onclick="changeCharacter()">
+            <img src="https://i.ibb.co/NKLS4bf/IMG-0736-removebg-preview.png" alt="Button Icon" class="button-icon">
+            <span class="button-text">Wander</span> <!-- button text -->
+        </button>
+        <img id="character" src="https://i.ibb.co/P6W6T7h/IMG-0728-removebg-preview.png" alt="Character GIF" class="character-image">
+    </div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <p>gaam@thegabbis.com<br>&copy; 2023 Gabbi all rights reserved. </p>
+      <!--
+      <div class="social-media">
+            <img src="facebook-icon.png" alt="Facebook">
+            <img src="twitter-icon.png" alt="Twitter">
+            <img src="instagram-icon.png" alt="Instagram">
+        </div>
+      -->
+    </div>
+</footer>
+
+
+    <script src="script.js"></script>
+
+  <script>
+  function hoverCharacter() {
+    document.getElementById('character').src = 'https://i.ibb.co/P6W6T7h/IMG-0728-removebg-preview.png';
+}
+
+function unhoverCharacter() {
+    document.getElementById('character').src = 'https://i.ibb.co/P6W6T7h/IMG-0728-removebg-preview.png';
+}
+
+function changeCharacter() {
+    // Code to handle button click, if needed
+}
+
+</script>
+</body>
+</html>
