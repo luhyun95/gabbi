@@ -6,6 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinema Style Page</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+    .frame-container {
+        background-image: url('assets/New Project (25).png');
+        background-size: cover;
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute; /* Add this to apply z-index */
+        pointer-events: none;
+        z-index: 3; /* This will ensure the frame is above the images */
+    }
+    /* ... other styles ... */
+
+    .slideshow-container {
+        position: relative;
+        z-index: 2;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slide img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;/* Place image below subtitle */
+    }
+
+    .subtitle {
+        font-size: 24px;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: .15em solid;
+        width: 0;
+        position: absolute; /* Position the subtitle */
+        bottom: 20%; /* Adjust as needed */
+        left: 50%; /* Center the subtitle */
+        transform: translateX(-50%); /* Center the subtitle */
+        z-index: 2; /* Place subtitle above image */
+        animation: typing 5s steps(40, end), blink .5s step-end infinite alternate;
+    }
+
+    /* ... other styles ... */
+
+    @keyframes typing {
+        100% {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+    }
+    </style>
 </head>
 
 <body>
@@ -26,6 +90,38 @@
 
 
     <script src="script.js">
+    //slideshows for #gabbi
+    let slideIndex = 0;
+    let slides = document.querySelectorAll(".slideshow-container .slide");
+
+
+    // Initially, display the first slide and hide the others
+    slides[0].style.display = "block";
+    for (let i = 1; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    // Click event to change the slide
+    document.querySelector(".slideshow-container").addEventListener('click', function() {
+        // Hide the current slide
+        slides[slideIndex].style.display= "none";
+
+    // Increment the slideIndex
+    slideIndex++;
+
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    }
+
+    // Show the next slide
+    slides[slideIndex].style.display = "block";
+
+    // Handle the typewriter effect for the subtitle
+    let subtitle = slides[slideIndex].querySelector(".subtitle");
+    subtitle.style.width = '0'; // Reset the width to start the typewriter effect from the beginning
+    let text = subtitle.getAttribute('data-text');
+    subtitle.innerText = text; // Set the text for the subtitle
+    });
     </script>
 </body>
 
