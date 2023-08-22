@@ -30,6 +30,7 @@ header {
     padding: 0 10px;
     height: 60px; /* Reduced height */
     color: white;
+    background-color: black;
     font-family: 'Tangerine', cursive;
     position: relative; /* Make the header float on top of the hero section */
     width: calc(100% - 80px); /* Full width minus padding */
