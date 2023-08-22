@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
     <link rel="icon" href="https://i.ibb.co/VYZVNvS/Frame-1.png" type="image/x-icon">
     <audio id="background-sound" autoplay loop>
-      <source src="forestsound (1).mp3" type="audio/mp3">
+    <source src="forestsound (1).mp3" type="audio/mp3">
     </audio>
 
     <title>Gabbi, home for lost souls</title>
@@ -32,243 +32,9 @@
     <meta property="og:url" content="https://thegabbis.com">
 
 
-  <style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Tangerine', cursive;
-    background-color: black;
-    overflow-x: hidden;
-    cursor: url('https://i.ibb.co/182skLb/Untitled-9-August-2023-07-57-removebg-preview.png'), auto;
-}
 
-a, button {
-  cursor: url('https://i.ibb.co/182skLb/Untitled-9-August-2023-07-57-removebg-preview.png'), auto;
-}
-
-header {
-    max-width: 1200px; /* Maximum width for the header */
-    margin: 0 auto; /* Center the header horizontally */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background:     url('https://i.ibb.co/grNCQMx/IMG-0737-removebg-preview.png') no-repeat; /* Updated header background image */
-    background-size: calc(100% - 40px) auto; /* Contain the image within the header */
-    background-position: center;
-    padding: 0 10px;
-    height: 60px; /* Reduced height */
-    color: white;
-    font-family: 'Tangerine', cursive;
-    position: relative; /* Make the header float on top of the hero section */
-    width: calc(100% - 80px); /* Full width minus padding */
-    z-index: 1000; /* Place header above other content */
-    top: 20px; /* Space from the top */
-    left: 50%; /* Center the header horizontally */
-    transform: translateX(-50%); /* Offset by half of the header's width */
-
-}
-
-  /* Container for header elements */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px; /* Maximum width for the header container */
-    width: 100%; /* Take up all available space */
-    padding: 0 20px; /* Padding on the sides */
-}
-
-
-.logo {
-    margin-left: 20px;
-    height: auto; /* Maintain aspect ratio */
-    max-height: 25px; /* Maximum height */
-    width: auto; /* Maintain aspect ratio */
-    flex-grow: 0; /* Prevent growing */
-}
-
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    align-items: center;
-    color: black; /* Updated text color to black */
-    font-size: calc(1.3rem + 0.5vw); /* Responsive font size */
-    flex-grow: 0; /* Prevent growing */
-}
-
-.nav-item {
-  transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.nav-item:hover {
-  transform: scale(1.1); /* Enlarge by 10% */
-}
-
-
-.cta-button {
-    background: url('https://i.ibb.co/fdP26pV/IMG-0739-removebg-preview.png') no-repeat center center; /* Background image */
-    background-size: contain; /* Contain the image within the button */
-    height: 40px; /* Reverted height */
-    border: none;
-    color: black;
-    padding: 0; /* Padding */
-    font-family: 'Tangerine', cursive;
-    font-size: 1.5rem; /* Font size */
-    display: flex; /* Flexbox for centering */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-    width: 120px; /* Reverted width */
-    margin-right: 20px; /* Margin to keep the button within the header */
-}
-
-.main-section {
-    background: url('https://i.ibb.co/hcBr9qq/IMG-0726.jpg') no-repeat center top;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 10px;
-    padding-top: 50px; /* Add space from the header */
-
-}
-
-/* Increase the size of the <h1> in the main section */
-.main-section h1 {
-    font-size: 50px; /* Adjust to your preferred size */
-    /* Other styles as needed */
-}
-
-/* Increase the size of the paragraph in the main section */
-.main-section p {
-    font-size: 20px; /* Adjust to your preferred size */
-    margin: 5px;
-    width: 180px; /* Increased width */
-    text-align: center;
-    /* Other styles as needed */
-}
-
-/* Increase the size of the button in the main section */
-
-
-/* Footer styles */
-footer {
-    background-color: black;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    font-family: 'Tangerine', cursive;
-    font-size: 1.5rem; /* Matched font size with menu */
-    height: 100px; /* Set a minimum height for the footer */
-    text-align: center;
-}
-
-.social-media {
-    display: flex; /* Align icons horizontally */
-    justify-content: center; /* Center icons horizontally */
-}
-
-.social-media img {
-    height: 30px;
-    margin: 10px;
-}
-
-
-
-.social-media img {
-    height: 30px;
-    margin: 10px;
-}
-
-h1 {
-    font-size: 3rem;
-    margin: 5px;
-}
-
-.button-icon {
-    width: 100%;
-    height: 100%;
-}
-
-button {
-    background-color: transparent;
-    border: none;
-    transition: transform 0.3s;
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative; /* Set position to relative to contain absolute-positioned text */
-    width: 120px; /* Set the same width as the image */
-    height: 70px; /* Set the same height as the image */
-}
-
-.button-text {
-    font-size: 1.3rem;
-    color: white;
-    position: absolute; /* Set position to absolute to overlay text on the image */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Align the exact center */
-    font-family: 'Tangerine', cursive;
-}
-
-button:hover {
-    transform: scale(1.1);
-}
-
-.character {
-    background: url('https://i.ibb.co/P6W6T7h/IMG-0728-removebg-preview.png') no-repeat center center;
-    width: 100px;
-    height: 150px;
-    margin: 20px 5px;
-    background-size: contain;
-}
-
-/* Hover state of the character (replace with the desired hover image URL) */
-.character:hover {
-    background: url('https://i.ibb.co/PMNyMNn/IMG-0741-removebg-preview.png') no-repeat center center;
-    width: 100px;
-    height: 150px;
-    margin: 20px 5px;
-    background-size: contain;
-}
-
-.scroll-section {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.scroll-section img {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-}
-
-.social-media img {
-  width: 20px; /* Adjust the size as needed */
-  height: auto; /* Maintain aspect ratio */
-}
-
-
-.cta-link {
-  text-decoration: none; /* Removes underline */
-}
-
-.cta-button {
-  /* Your button styling here */
-}
-
-</style>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
 </head>
 <body>
       <header>
@@ -280,7 +46,7 @@ button:hover {
             <a href="#retreat">Retreat</a>
             <a href="#hotel">Hotel</a>
         </nav>
-        <a href="https://discord.gg/V54VxYnUqh" class="cta-link">
+        <a href="join.html" class="cta-link">
           <button class="cta-button">Join</button>
         </a>
         </div>
@@ -317,33 +83,5 @@ button:hover {
         </div>
     </div>
 </footer>
-
-
-    <script src="script.js"></script>
-  <script>
-function hoverButton() {
-    const character = document.querySelector('.character');
-    character.style.backgroundImage = "url('https://i.ibb.co/PMNyMNn/IMG-0741-removebg-preview.png')";
-    character.style.width = "100px";
-    character.style.height = "150px";
-    character.style.margin = "20px 5px";
-    character.style.backgroundSize = "contain";
-}
-
-function unhoverButton() {
-    const character = document.querySelector('.character');
-    // Reset to original styles (you might need to adjust these values)
-    character.style.backgroundImage = "url('https://i.ibb.co/P6W6T7h/IMG-0728-removebg-preview.png')";
-    character.style.width = "originalWidth";  // Replace with original width
-    character.style.height = "originalHeight";  // Replace with original height
-    character.style.margin = "originalMargin";  // Replace with original margin
-    character.style.backgroundSize = "originalBackgroundSize";  // Replace with original background-size
-}
-
-function changeCharacter() {
-    // Code to handle button click, if needed
-}
-
-</script>
 </body>
 </html>

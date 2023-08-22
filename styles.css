@@ -1,0 +1,355 @@
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tangerine', cursive;
+    background-color: #F6ECE0;
+    overflow-x: hidden;
+    cursor: url('https://i.ibb.co/182skLb/Untitled-9-August-2023-07-57-removebg-preview.png'), auto;
+}
+
+a, button {
+  cursor: url('https://i.ibb.co/182skLb/Untitled-9-August-2023-07-57-removebg-preview.png'), auto;
+}
+
+p {
+    margin: 5px;
+    text-align: center;
+}
+
+header {
+    max-width: 1200px; /* Maximum width for the header */
+    margin: 0 auto; /* Center the header horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background:     url('https://i.ibb.co/grNCQMx/IMG-0737-removebg-preview.png') no-repeat; /* Updated header background image */
+    background-size: calc(100% - 40px) auto; /* Contain the image within the header */
+    background-position: center;
+    padding: 0 10px;
+    height: 60px; /* Reduced height */
+    color: white;
+    font-family: 'Tangerine', cursive;
+    position: relative; /* Make the header float on top of the hero section */
+    width: calc(100% - 80px); /* Full width minus padding */
+    z-index: 1000; /* Place header above other content */
+    top: 20px; /* Space from the top */
+    left: 50%; /* Center the header horizontally */
+    transform: translateX(-50%); /* Offset by half of the header's width */
+
+}
+
+  /* Container for header elements */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Maximum width for the header container */
+    width: 100%; /* Take up all available space */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+
+.logo {
+    margin-left: 20px;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 25px; /* Maximum height */
+    width: auto; /* Maintain aspect ratio */
+    flex-grow: 0; /* Prevent growing */
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    align-items: center;
+    color: black; /* Updated text color to black */
+    font-size: calc(1.3rem + 0.5vw); /* Responsive font size */
+    flex-grow: 0; /* Prevent growing */
+}
+
+.nav-item {
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.nav-item:hover {
+  transform: scale(1.1); /* Enlarge by 10% */
+}
+
+
+.cta-button {
+    background: url('https://i.ibb.co/fdP26pV/IMG-0739-removebg-preview.png') no-repeat center center; /* Background image */
+    background-size: contain; /* Contain the image within the button */
+    height: 40px; /* Reverted height */
+    border: none;
+    color: black;
+    padding: 0; /* Padding */
+    font-family: 'Tangerine', cursive;
+    font-size: 1.5rem; /* Font size */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    width: 120px; /* Reverted width */
+    margin-right: 20px; /* Margin to keep the button within the header */
+}
+
+.main-section {
+    background: url('https://i.ibb.co/hcBr9qq/IMG-0726.jpg') no-repeat center top;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px;
+    padding-top: 50px; /* Add space from the header */
+
+}
+
+/* Increase the size of the <h1> in the main section */
+.main-section h1 {
+    font-size: 50px; /* Adjust to your preferred size */
+    /* Other styles as needed */
+}
+
+/* Increase the size of the paragraph in the main section */
+.main-section p {
+    font-size: 20px; /* Adjust to your preferred size */
+    margin: 5px;
+    width: 180px; /* Increased width */
+    text-align: center;
+    /* Other styles as needed */
+}
+
+/* Increase the size of the button in the main section */
+
+
+/* Footer styles */
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    font-family: 'Tangerine', cursive;
+    font-size: 1.5rem; /* Matched font size with menu */
+    height: 100px; /* Set a minimum height for the footer */
+    text-align: center;
+}
+
+.social-media {
+    display: flex; /* Align icons horizontally */
+    justify-content: center; /* Center icons horizontally */
+}
+
+.social-media img {
+    height: 30px;
+    margin: 10px;
+}
+
+
+
+.social-media img {
+    height: 30px;
+    margin: 10px;
+}
+
+h1 {
+    padding-top: 50px;
+    font-size: 3rem;
+    margin: 5px;
+    text-align: center;
+}
+
+h2{
+   text-align: center;
+}
+
+.button-icon {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    transition: transform 0.3s;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Set position to relative to contain absolute-positioned text */
+}
+
+.main-section button{
+  width: 120px;
+  height: 70px;
+}
+
+
+.button-text {
+    font-size: 1.3rem;
+    color: white;
+    position: absolute; /* Set position to absolute to overlay text on the image */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Align the exact center */
+    font-family: 'Tangerine', cursive;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.character {
+    background: url('https://i.ibb.co/P6W6T7h/IMG-0728-removebg-preview.png') no-repeat center center;
+    width: 100px;
+    height: 150px;
+    margin: 20px 5px;
+    background-size: contain;
+}
+
+/* Hover state of the character (replace with the desired hover image URL) */
+.character:hover {
+    background: url('https://i.ibb.co/PMNyMNn/IMG-0741-removebg-preview.png') no-repeat center center;
+    width: 100px;
+    height: 150px;
+    margin: 20px 5px;
+    background-size: contain;
+}
+
+.scroll-section {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.scroll-section img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.social-media img {
+  width: 20px; /* Adjust the size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+.cta-link {
+  text-decoration: none; /* Removes underline */
+}
+
+.cta-button {
+  /* Your button styling here */
+}
+
+
+.hotel .product-box {
+    width: calc(33.33% - 10px);
+    height: calc(33.33% - 10px);
+    float: left;
+    position: relative;
+}
+.hotel .product-box * {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.box {
+    position: relative;
+    flex: 1 0 calc(33.33% - 40px);
+    max-width: calc(33.33% - 40px);
+    min-width: 300px;
+    max-height: calc(33.33% - 40px);
+    min-height: 300px;
+    margin: 10px;
+    background-color: #E5C697;
+    border-radius: 50px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('scroll.jpg');
+}
+
+
+
+.box-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box img.box-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100px;
+    z-index: -1;
+}
+
+.box img:not(.box-bg) {
+    width: 100px;  /* Set to your desired width */
+    height: 100px; /* Set to your desired height */
+    display: block;
+    margin: 0 auto; /* Horizontally centers the image */
+    object-fit: contain; /* Ensures entire image is visible and fits within the dimensions */
+}
+
+.box h2 {
+    margin-bottom: 5px;
+    color: black;
+}
+
+.box p {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.box button {
+    padding: 10px 15px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.box button:hover {
+    background-color: #85292C;
+}
+
+@media (max-width: 950px) {
+    .box {
+        flex-basis: 100%;
+        margin: 20px auto;
+    }
+}
