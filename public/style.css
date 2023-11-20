@@ -1,0 +1,134 @@
+media="screen"
+
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+padding: 20px;
+}
+
+/* Styles for the constrained area */
+.constrained-area {
+  max-width: 440px;
+  height: 896px;
+  margin: 0 auto;
+  border: 2px solid #ccc; /* Optional border for visualization */
+  box-sizing: border-box; /* Adjust padding as needed */
+  position: relative; /* Position relative for absolute positioning of border images */
+  overflow: hidden; /* Ensure border images stay within the constrained area */
+}
+
+#chat-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px; /* Adjust padding as needed */
+  margin: auto;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Frame border images */
+.border-image {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  z-index: 1; /* Places the borders behind the content */
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+.top-border {
+    top: 0;
+  }
+
+  .bottom-border {
+    bottom: 0;
+  }
+
+  /* Left and Right borders */
+  .left-border,
+  .right-border {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: auto; /* Adjust border width as needed */
+    z-index: 1;
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+
+  .left-border {
+    left: 0;
+  }
+
+  .right-border {
+    right: 0;
+  }
+
+/* Styles for the card-based layout */
+.card {
+max-width: 300px;
+width: 80%;
+background-color: #fff;
+border-radius: 15px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+margin-bottom: 15px; /* Added margin between cards */
+}
+
+.card-content {
+padding: 20px;
+text-align: center;
+}
+
+.character {
+max-width: 100%;
+margin: 0 auto;
+display: block;
+}
+
+.question-section {
+background-color: #f9f9f9;
+padding: 15px;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+}
+
+.question-text {
+font-weight: bold;
+font-size: 18px;
+margin-bottom: 10px;
+}
+
+/* Styles for user input and submit button */
+#user-input {
+width: calc(100% - 20px); /* Adjust input width */
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+margin: 0 auto;
+}
+
+#submit-btn {
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+background-color: #4CAF50;
+color: white;
+cursor: pointer;
+}
+
+#submit-btn:hover {
+background-color: #45a049;
+}
+
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 440px) {
+  .constrained-area {
+    width: 100%;
+    height: auto;
+    max-height: 896px;
+  }
+}

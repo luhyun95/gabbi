@@ -8,9 +8,11 @@ const port = 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use('/assets', express.static('assets')); // Serving files from the 'assets' directory
+
 
 // OpenAI API key
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = 'KEY';
 
 // Sentiment analysis instance
 const sentiment = new Sentiment();
@@ -33,7 +35,12 @@ function analyzeSentiment(answer) {
 function determineCategory(answer) {
     const sentimentScore = analyzeSentiment(answer);
     const answerLength = answer.split(' ').length;
-    const keywords = {/* ... same as before ... */};
+    const keywords = {
+      Fire: ["passionate", "energetic", "bold", "ambitious", "enthusiastic", "courageous"],
+      Earth: ["grounded", "stable", "practical", "reliable", "dependable", "patient"],
+      Water: ["emotional", "intuitive", "empathetic", "calm", "peaceful", "adaptable"],
+      Air: ["intellectual", "curious", "communicative", "adaptable", "analytical", "abstract"]
+    };
     const elementScores = { Fire: 0, Earth: 0, Water: 0, Air: 0 };
 
     // Convert answer to lower case for case-insensitive matching
@@ -48,33 +55,50 @@ function determineCategory(answer) {
         });
     }
 
-    // ... rest of the logic remains the same ...
+    // Update scores based on sentiment
+        if (sentimentScore > 0.5) elementScores['Fire']++;
+        else if (sentimentScore > -0.2 && sentimentScore < 0.2) elementScores['Earth']++;
+        else if (sentimentScore < 0) elementScores['Water']++;
+        else if (sentimentScore > 0.2) elementScores['Air']++;
+
+        // Update scores based on answer length
+        if (answerLength < 10) elementScores['Earth']++;
+        else if (answerLength >= 30) elementScores['Air']++;
+
+        // Determine the highest score
+        let maxElement = '';
+        let maxScore = 0;
+        for (const element in elementScores) {
+            if (elementScores[element] > maxScore) {
+                maxScore = elementScores[element];
+                maxElement = element;
+            }
+        }
 
     return maxElement || 'Undetermined';
 }
 
 // Endpoint to analyze user answer
 app.post('/analyze', async (req, res) => {
-    const userAnswer = req.body.answer;
-    const category = determineCategory(userAnswer);
-
-    // OpenAI API request
     try {
-        const response = await axios.post('https://api.openai.com/v1/engines/davinci/completions', {
-            prompt: `Write a response in a [Tone: Encouraging] for a person with [Category: ${category}]. The user's answer was: [${userAnswer}]`,
-            max_tokens: 150
-        }, {
-            headers: {
-                'Authorization': `Bearer ${OPENAI_API_KEY}`
-            }
-        });
+        const userAnswer = req.body.answer;
+        const sentimentScore = analyzeSentiment(userAnswer); // Sentiment analysis
+        const category = determineCategory(userAnswer, sentimentScore); // Category determination
+        // Continue from the previous code snippet
+        res.json({ response: `You are: ${category}` });
 
-        res.json({ response: response.data.choices[0].text });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Error processing the request');
+  } catch (error) {
+      console.error('Axios Error:', error.response ? error.response.data : error.message);
+        // Send detailed error information
+        res.status(500).json({
+            error: 'Error processing the OpenAI API request',
+            details: error.message,
+            response: error.response ? error.response.data : null
+        });
     }
 });
+
+
 
 // Endpoint to get a random question
 app.get('/get-random-question', (req, res) => {
