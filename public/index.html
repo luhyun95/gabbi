@@ -59,6 +59,25 @@
       document.getElementById('response-area').innerText = "You answered: " + userInput;
       // Here you will later integrate the backend logic
   });
+
+  document.getElementById('submit-btn').addEventListener('click', function() {
+    var userInput = document.getElementById('user-input').value;
+    fetch('/analyze', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ answer: userInput }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('response-area').innerText = data.response;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
+
 </script>
 </body>
 </html>
