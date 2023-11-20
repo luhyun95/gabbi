@@ -4,7 +4,14 @@ body {
 font-family: Arial, sans-serif;
 text-align: center;
 padding: 20px;
-size: 30px;
+size: 15px;
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  size: 30px;
 }
 
 /* Styles for the constrained area */

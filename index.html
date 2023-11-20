@@ -75,8 +75,8 @@ function fetchRandomQuestion() {
         return response.json();
     })
     .then(data => {
-        document.getElementById('question-area').innerHTML = data.question;
-    })
+      document.getElementById('question-area').innerHTML = `<h1>${data.question}</h1>`;
+  })
     .catch(error => {
         console.error('Error fetching question:', error);
         document.getElementById('question-area').innerText = 'Error loading question.';
