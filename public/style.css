@@ -5,6 +5,12 @@ font-family: Arial, sans-serif;
 text-align: center;
 padding: 20px;
 size: 15px;
+background-image:'/assetsforest.png';
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 100vh; /* This limits the height */
+margin: 0; /* Removes default margin */
 }
 
 h1 {
