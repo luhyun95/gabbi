@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Test Chat</title>
+    <link rel="stylesheet" href="style.css">
+    </style>
+</head>
+<body>
+<div class="constrained-area">
+  <img class="border-image left-border" src="assets/frame_left.png" >
+  <img class="border-image right-border" src="assets/frame_right.png">
+
+  <div id="chat-container">
+    <!-- Border images -->
+    <div id="question-area">
+      <div class="card">
+        <div class="question-section">
+          <div class="question-text">
+            Question will appear here...
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="character" src="assets/gabbi.png">
+    <input type="text" id="user-input" placeholder="Type your answer here...">
+    <button id="submit-btn">Submit</button>
+    <div id="response-area">
+      <div class="card">
+        <div class="question-section">
+          <div class="question-text">
+            Response will appear here...
+          </div>
+        </div>
+        <div class="card-content">
+          <!-- Response content will go here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('submit-btn').addEventListener('click', function() {
+    var userInput = document.getElementById('user-input').value;
+    fetch('/analyze', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ answer: userInput }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        document.getElementById('response-area').innerText = data.response;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        document.getElementById('response-area').innerText = 'An error occurred: ' + error.message;
+    });
+});
+
+function fetchRandomQuestion() {
+    fetch('/get-random-question')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+      document.getElementById('question-area').innerHTML = `<h1>${data.question}</h1>`;
+  })
+    .catch(error => {
+        console.error('Error fetching question:', error);
+        document.getElementById('question-area').innerText = 'Error loading question.';
+    });
+}
+
+// Fetch a random question when the page loads
+document.addEventListener('DOMContentLoaded', fetchRandomQuestion);
+</script>
+</body>
+</html>
