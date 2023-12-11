@@ -1,11 +1,20 @@
 media="screen"
 
+/* Media query for smaller screens */
+@media only screen and (max-width: 440px) {
+  .constrained-area {
+    width: 100%;
+    height: auto;
+    max-height: 896px;
+  }
+}
+
+
 body {
 font-family: Arial, sans-serif;
 text-align: center;
-padding: 20px;
 size: 15px;
-background-image:'/assetsforest.png';
+background-image: url(assets/forest.png);
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
@@ -16,23 +25,49 @@ margin: 0; /* Removes default margin */
 h1 {
   font-family: Arial, sans-serif;
   text-align: center;
-  padding: 20px;
-  size: 30px;
+  padding: 30px;
+  margin: 20px;
+  size: 20px;
+  font-family: 'Caveat', cursive; /* The cursive is a fallback font */
+  color: #FA432B;
 }
 
+h2 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 30px;
+  margin: 20px;
+  size: 20px;
+  font-family: 'Caveat', cursive; /* The cursive is a fallback font */
+  color: white;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
 /* Styles for the constrained area */
 .constrained-area {
-  max-width: 440px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
   height: 896px;
+  background-color: #EFD6AC;
   margin: 0 auto;
   border: 2px solid #ccc; /* Optional border for visualization */
   box-sizing: border-box; /* Adjust padding as needed */
   position: relative; /* Position relative for absolute positioning of border images */
   overflow: hidden; /* Ensure border images stay within the constrained area */
-}
+  background-size: cover; /* Cover the entire area while maintaining aspect ratio */
+  background-position: center; /* Center the image */
+  height: 100vh; /* Adjust this as needed to match the height of the area */
+  width: 100%; /* Optional, based on your layout requirements */
+  }
+
+
 
 #chat-container {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -41,6 +76,21 @@ h1 {
   padding: 20px; /* Adjust padding as needed */
   margin: auto;
   overflow: hidden; /* Prevent content overflow */
+}
+
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/entry.png') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 1000; /* Ensures it's above other elements */
 }
 
 /* Frame border images */
@@ -79,6 +129,25 @@ h1 {
     right: 0;
   }
 
+
+  #question-area h1:after {
+      content: '|';
+      animation: blink 1s infinite;
+  }
+
+
+  .centered-group, .input-group {
+      position: relative; /* Positioned relative to .constrained-area */
+      width: 100%; /* Take full width of the parent */
+      max-width: 600px; /* Or any max-width you prefer */
+      margin: auto; /* Centering if using max-width */
+  }
+
+.centered-group {
+  top: 20%;
+}
+
+
 /* Styles for the card-based layout */
 .card {
 max-width: 300px;
@@ -96,7 +165,7 @@ text-align: center;
 }
 
 .character {
-max-width: 50%;
+max-width: 30%;
 margin: 0 auto;
 display: block;
 }
@@ -114,35 +183,89 @@ font-size: 20px;
 margin-bottom: 30px;
 }
 
+.input-group {
+    width: 70%;
+    position: absolute; /* Fixed position */
+    left: 50%; /* Center the div horizontally */
+    transform: translateX(-50%); /* Adjust for exact centering */
+    bottom: 50px; /* Slightly above the bottom */
+    padding: 0 5px; /* Padding on left and right */
+    display: none; /* Initially hidden */
+}
+
 /* Styles for user input and submit button */
 #user-input {
-width: calc(100% - 20px); /* Adjust input width */
-padding: 10px;
-margin-bottom: 10px;
-border-radius: 5px;
-border: 1px solid #ccc;
-margin: 0 auto;
+    width: calc(100% - 20px); /* Adjust input width */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none; /* Remove standard border */
+    border-bottom: 2px solid black; /* Thick black underline */
+    margin: 0 auto;
+    opacity: 0.7; /* Adjust this value as needed */
+    background-color: transparent; /* Remove background color */
+    outline: none; /* Optional: removes the focus outline */
 }
+
 
 #submit-btn {
-padding: 10px 20px;
 border: none;
-border-radius: 5px;
-background-color: #4CAF50;
-color: white;
 cursor: pointer;
+background-color: transparent;
+font-size: 20px;
 }
 
-#submit-btn:hover {
-background-color: #45a049;
+
+.subscription-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#email-input {
+    padding: 8px;
+    margin: 10px;
+}
+
+#subscribe-btn {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#subscribe-btn:hover {
+    background-color: #2980b9;
 }
 
 
-/* Media query for smaller screens */
-@media only screen and (max-width: 440px) {
-  .constrained-area {
-    width: 100%;
-    height: auto;
-    max-height: 896px;
+
+/*animations */
+.scale-down-animation {
+    animation: scaleDown 2s ease forwards; /* Animation is applied here */
+}
+
+.fade-in {
+  animation: fadeIn 2s;
+}
+
+@keyframes scaleDown {
+    from {
+        transform: scale(3); /* Starts at 3 times the size */
+    }
+    to {
+        transform: scale(1); /* Scales down to original size */
+    }
+}
+
+@keyframes blink {
+      50% { opacity: 0; }
   }
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

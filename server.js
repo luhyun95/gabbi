@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const Sentiment = require('sentiment');
+
 const app = express();
 const port = 3000;
 
@@ -18,10 +19,14 @@ const OPENAI_API_KEY = 'KEY';
 const sentiment = new Sentiment();
 
 const questions = [
-    "What activity makes you feel most like yourself?",
-    "Describe a dream you've had more than once.",
-    "What's a skill you've always wanted to learn?",
-    "When do you feel most at peace?",
+  "What keeps you up at night?",
+  "What can you do to make a difference?",
+  "To where does your soul want to travel?",
+  "When was the last time you couldn't stop laughing or smiling?",
+  "What risk can you take now?",
+  "What are the dominant emotion that run your life?",
+  "What do you want to burn?",
+  "Who am I ready to forgive?",
     // ... more questions ...
 ];
 
@@ -79,7 +84,7 @@ function determineCategory(answer) {
 }
 
 // Endpoint to analyze user answer
-app.post('/analyze', async (req, res) => {
+ app.post('/analyze', async (req, res) => {
     try {
         const userAnswer = req.body.answer;
         const sentimentScore = analyzeSentiment(userAnswer); // Sentiment analysis
@@ -109,4 +114,14 @@ app.get('/get-random-question', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
+});
+
+// email subscription
+app.post('/subscribe', (req, res) => {
+    const { email } = req.body;
+
+    // Perform subscription logic (e.g., save to database, send confirmation email)
+
+    // Simulate success response
+    res.json({ message: `Subscribed successfully! Thank you, ${email}!` });
 });
