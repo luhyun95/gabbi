@@ -1,3 +1,4 @@
+const functions = require('firebase-functions');
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
@@ -125,3 +126,6 @@ app.post('/subscribe', (req, res) => {
     // Simulate success response
     res.json({ message: `Subscribed successfully! Thank you, ${email}!` });
 });
+
+
+exports.app = functions.https.onRequest(app);
